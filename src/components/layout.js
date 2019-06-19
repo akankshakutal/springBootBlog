@@ -1,6 +1,7 @@
 import React from "react"
 
 import Header from "./header"
+import Image from "./image"
 import "./layout.css"
 
 const Layout = () => {
@@ -9,7 +10,12 @@ const Layout = () => {
   let month = updatedDate.getMonth()
   let year = updatedDate.getFullYear()
   let fullDate = year + " - " + month + " -  " + date
-  return <Header siteTitle="Spring Boot" date={fullDate} />
+  return (
+    <div>
+      <Header siteTitle="Spring Boot" date={fullDate} />
+      <Image></Image>
+    </div>
+  )
 }
 
 export default Layout
