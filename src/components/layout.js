@@ -1,21 +1,16 @@
 import React from "react"
 
 import Header from "./header"
-import Image from "./image"
 import "./layout.css"
 
-const Layout = () => {
-  let updatedDate = new Date()
-  let date = updatedDate.getDate()
-  let month = updatedDate.getMonth()
-  let year = updatedDate.getFullYear()
-  let fullDate = year + " - " + month + " -  " + date
+const Layout = ({ data }) => {
+  let date = data.allDataJson.edges[0].node.date
+  let title = data.allDataJson.edges[0].node.title
+
   return (
     <div>
-      <Header siteTitle="Spring Boot" date={fullDate} />
-      <Image></Image>
+      <Header siteTitle={title} date={date} />
     </div>
   )
 }
-
 export default Layout
