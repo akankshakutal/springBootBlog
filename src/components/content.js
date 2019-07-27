@@ -1,20 +1,23 @@
 import PropTypes from "prop-types"
 import React from "react"
 import "./content.css"
-const Content = ({ topic, text }) => (
-  <div>
-    <h2>{topic}</h2>
-    <p>{text}</p>
-  </div>
-)
+const Content = ({ content }) => {
+  console.log(content)
+
+  return (
+    <div>
+      <h2>{content.topic}</h2>
+      <p>{content.text}</p>
+    </div>
+  )
+}
 
 Content.propTypes = {
-  topic: PropTypes.string,
-  text: PropTypes.string,
+  content: PropTypes.object,
 }
 
 Content.defaultProps = {
-  content: ``,
+  content: {},
 }
 
 export default Content

@@ -3,9 +3,15 @@
     "title": "Spring boot",
     "date": "2019-07-27",
 
-    "content": {
-      "topic": "Beans",
-      "text": "The objects that are managed by the Spring IoC container are called beans.A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container.A bean definition is essentially a recipe for creating one or more objects. The container looks at the recipe for a named bean when asked and uses the configuration metadata encapsulated by that bean definition to create (or acquire) an actual object."
-    }
+    "content": [
+      {
+        "topic": "Beans",
+        "text": "The objects that are managed by the Spring IoC container are called beans.A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container.A bean definition is essentially a recipe for creating one or more objects. The container looks at the recipe for a named bean when asked and uses the configuration metadata encapsulated by that bean definition to create (or acquire) an actual object."
+      },
+      {
+        "topic": "IoC (Inversion of Control)",
+        "text": "“org.springframework.context.ApplicationContext”  interface represents the Spring IoC container and is responsible for instantiating, configuring, and assembling the beans.  A Spring IoC container manages one or more beans. These beans are created with the configuration metadata that you supply to the container. "
+      }
+    ]
   }
 ]
