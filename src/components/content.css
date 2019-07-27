@@ -1,0 +1,10 @@
+h2 {
+  padding-left: 5%;
+  padding-top: 5%;
+}
+
+p {
+  width: 70%;
+  overflow-wrap: break-word;
+  padding-left: 8%;
+}
