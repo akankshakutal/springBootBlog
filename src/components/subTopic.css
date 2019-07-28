@@ -1,11 +1,11 @@
-h2 {
+h3 {
   padding-left: 5%;
   padding-top: 3%;
 }
 
 pre {
   font-family: sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   background: white;
   width: 70% !important;
   overflow-x: auto;

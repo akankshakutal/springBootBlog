@@ -7,7 +7,7 @@ const Content = ({ content }) => {
   return (
     <div>
       <h2>{content.topic}</h2>
-      <p>{content.text}</p>
+      <pre>{content.text}</pre>
     </div>
   )
 }

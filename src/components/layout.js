@@ -9,7 +9,6 @@ const Layout = ({ data }) => {
   let date = data.allDataJson.edges[0].node.date
   let title = data.allDataJson.edges[0].node.title
   let content = data.allDataJson.edges[0].node.content
-  console.log(content)
 
   return (
     <div>
