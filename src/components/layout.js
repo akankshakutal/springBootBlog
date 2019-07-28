@@ -3,7 +3,7 @@ import React from "react"
 import "./layout.css"
 import Header from "./header"
 import Content from "./content"
-import Image from "./image"
+import Diagram from "./diagram"
 
 const Layout = ({ data }) => {
   let date = data.allDataJson.edges[0].node.date
@@ -14,9 +14,11 @@ const Layout = ({ data }) => {
   return (
     <div>
       <Header siteTitle={title} date={date} />
-      <Content content={content[0]}></Content>
-      <Content content={content[1]}></Content>
-      <Image></Image>
+      <div className="main-container">
+        <Content content={content[0]}></Content>
+        <Content content={content[1]}></Content>
+        <Diagram></Diagram>
+      </div>
     </div>
   )
 }
