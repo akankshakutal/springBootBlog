@@ -2,8 +2,6 @@ import PropTypes from "prop-types"
 import React from "react"
 import "./content.css"
 const Content = ({ content }) => {
-  console.log(content)
-
   return (
     <div>
       <h2>{content.topic}</h2>
