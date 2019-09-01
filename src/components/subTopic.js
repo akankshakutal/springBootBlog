@@ -5,7 +5,7 @@ import "./subTopic.css"
 const SubTopic = ({ content }) => {
   return (
     <div className="container">
-      <h3>{content.topic}</h3>
+      <h4>{content.topic}</h4>
       <pre>{content.text}</pre>
     </div>
   )

@@ -18,7 +18,7 @@ const Diagram = () => (
   <StaticQuery
     query={graphql`
       query {
-        placeholderImage: file(relativePath: { eq: "IoC.png" }) {
+        placeholderImage: file(relativePath: { eq: "springAOP.png" }) {
           childImageSharp {
             fluid(maxWidth: 300) {
               ...GatsbyImageSharpFluid
