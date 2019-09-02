@@ -7,7 +7,6 @@ const Content = ({ content }) => {
   let subtopics = content.subtopics.map(subtopic => {
     return <SubTopic content={subtopic}></SubTopic>
   })
-
   return (
     <div>
       <h2>{content.topic}</h2>

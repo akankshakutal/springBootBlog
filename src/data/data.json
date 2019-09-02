@@ -5,29 +5,41 @@
 
     "content": [
       {
-        "topic": "AOP(Apsect Oriented Programming)",
+        "topic": "AOP(Apsect Oriented Programming) :",
         "text": "In AOP, aspects enable the modularization of concerns such as transaction management, logging or security that cut across multiple types and objects (often termed crosscutting concerns). AOP provides the way to dynamically add the cross-cutting concern before, after or around the actual logic using simple pluggable configurations.\nUsing AOP, we define the common functionality in one place, but we can declaratively define how and where this functionality is applied without having to modify the class to which we are applying the new feature. Cross-cutting concerns can now be modularized into special classes called aspects.",
         "subtopics": [
           {
-            "topic": "Join point",
+            "topic": "Join point :",
             "text": "A point during the execution of a program, such as the execution of a method or the handling of an exception."
           },
           {
-            "topic": "Advice",
+            "topic": "Advice :",
             "text": "Action taken by an aspect at a particular join point."
           },
           {
-            "topic": "Pointcut",
+            "topic": "Pointcut :",
             "text": "A predicate that matches join points.Spring AOP only supports method execution join points for Spring beans."
           }
         ]
       },
       {
-        "topic" : "Pointcut Designators",
-        "text":"Spring AOP supports the following AspectJ pointcut designators (PCD) for use in pointcut expressions:",
-        "subtopics" : [
+        "topic": "Pointcut Designators :",
+        "text": "Spring AOP supports the following AspectJ pointcut designators (PCD) for use in pointcut expressions:",
+        "subtopics": [
           {
-            "topic" : ""
+            "topic": "execution :",
+            "text": "For matching method execution join points. This is the primary pointcut designator to use when working with Spring AOP.",
+            "codeSnippet": "@Before(value = \"execution(* com.Controller.*.*(..))\")\n public void beforeAdvice(JoinPoint joinPoint) {\n    System.out.println(\"Before method:\" + joinPoint.getSignature());\n}"
+          },
+          {
+            "topic": "within :",
+            "text": " Limits matching to join points within certain types (the execution of a method declared within a matching type when using Spring AOP).",
+            "codeSnippet": "@Before(value = \"within(com.service.*)\")\n public void beforeAdvice(JoinPoint joinPoint) {\n    System.out.println(\"Before method:\" + joinPoint.getSignature());\n}"
+          },
+          {
+            "topic": "this :",
+            "text": "Limits matching to join points (the execution of methods when using Spring AOP) where the bean reference (Spring AOP proxy) is an instance of the given type.",
+            "codeSnippet": "@Before(value = \"this(com.service.EmployeeService)\")\n public void beforeAdvice(JoinPoint joinPoint) {\n    System.out.println(\"Before method:\" + joinPoint.getSignature());\n}"
           }
         ]
       }

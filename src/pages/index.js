@@ -16,6 +16,7 @@ export const query = graphql`
             subtopics {
               text
               topic
+              codeSnippet
             }
           }
         }

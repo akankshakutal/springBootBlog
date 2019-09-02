@@ -1,0 +1,10 @@
+.codeSnippet {
+  width: 650px !important;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  background: black;
+  color: white;
+  margin-left: 150px !important;
+  border-radius: 10px;
+}
