@@ -5,11 +5,10 @@ import "./codeSnippet.css"
 const CodeSnippet = ({ code }) => {
   let data
   if (code) {
-    data = <pre className="codeSnippet">{code}</pre>
+    data = <div><pre>Example:</pre><pre className="codeSnippet">{code}</pre></div>
   }
   return (
     <div>
-      <pre>Example:</pre>
       {data}
     </div>
   )

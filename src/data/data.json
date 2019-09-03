@@ -40,6 +40,26 @@
             "topic": "this :",
             "text": "Limits matching to join points (the execution of methods when using Spring AOP) where the bean reference (Spring AOP proxy) is an instance of the given type.",
             "codeSnippet": "@Before(value = \"this(com.service.EmployeeService)\")\n public void beforeAdvice(JoinPoint joinPoint) {\n    System.out.println(\"Before method:\" + joinPoint.getSignature());\n}"
+          },
+          {
+            "topic": "target :",
+            "text": "Limits matching to join points (the execution of methods when using Spring AOP) where the target object (application object being proxied) is an instance of the given type.",
+            "codeSnippet": "@Before(value = \"target(com.service.EmployeeService)\")\n public void beforeAdvice(JoinPoint joinPoint) {\n    System.out.println(\"Before method:\" + joinPoint.getSignature());\n}"
+          },
+          {
+            "topic": "args :",
+            "text": "Limits matching to join points (the execution of methods when using Spring AOP) where the arguments are instances of the given types.",
+            "codeSnippet": "@Before(value = \"args(java.io.Serializable)\")\n public void beforeAdvice(JoinPoint joinPoint) {\n    System.out.println(\"Before method:\" + joinPoint.getSignature());\n}"
+          },
+          {
+            "topic": "@within :",
+            "text": "any join point (method execution only in Spring AOP) where the declared type of the target object has given annotation:",
+            "codeSnippet": "@Before(value = \"@within(java.beans.Transient)\")\n public void beforeAdvice(JoinPoint joinPoint) {\n    System.out.println(\"Before method:\" + joinPoint.getSignature());\n}"
+          },
+          {
+            "topic": "@annotation :",
+            "text": "any join point (method execution only in Spring AOP) where the executing method has given annotation:",
+            "codeSnippet": "@Before(value = \"@annotation(java.beans.Transient)\")\n public void beforeAdvice(JoinPoint joinPoint) {\n    System.out.println(\"Before method:\" + joinPoint.getSignature());\n}"
           }
         ]
       }
