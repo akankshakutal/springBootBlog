@@ -17,6 +17,8 @@ const Layout = ({ data }) => {
         <Content content={content[0]}></Content>
         <Diagram></Diagram>
         <Content content={content[1]}></Content>
+        <Content content={content[2]}></Content>
+        <Content content={content[3]}></Content>
       </div>
     </div>
   )

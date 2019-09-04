@@ -5,7 +5,9 @@ import "./header.css"
 const Header = ({ siteTitle, date }) => (
   <header className="header">
     <div>
-      <h1>{siteTitle}</h1>
+      <div>
+        <h1 className="heading">{siteTitle}</h1>
+      </div>
       <div className="date">Updated at {date}</div>
     </div>
   </header>
