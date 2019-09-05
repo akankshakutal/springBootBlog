@@ -23,14 +23,6 @@
           {
             "topic": "Pointcut :",
             "text": "A predicate that matches join points.Spring AOP only supports method execution join points for Spring beans.This is a set of one or more joinpoints where an advice should be executed"
-          },
-          {
-            "topic": "Introduction :",
-            "text": "An introduction allows you to add new methods or attributes to existing classes."
-          },
-          {
-            "topic": "Target object :",
-            "text": "The object being advised by one or more aspects. This object will always be a proxied object. Also referred to as the advised object."
           }
         ]
       },
@@ -66,37 +58,37 @@
           {
             "topic": "execution :",
             "text": "For matching method execution join points. This is the primary pointcut designator to use when working with Spring AOP.",
-            "codeSnippet": "@Before(value = \"execution(* com.Controller.*.*(..))\")\n public void beforeAdvice(JoinPoint joinPoint) {\n    System.out.println(\"Before method:\" + joinPoint.getSignature());\n}"
+            "codeSnippet": "@Before( value = \"execution(* com.controller.*.*(..))\" ) // pointcut expression\n public void beforeAdvice( JoinPoint joinPoint ) { // the pointcut signature\n    System.out.println( \"Before method any method in com.controller\" );\n}"
           },
           {
             "topic": "within :",
             "text": " Limits matching to join points within certain types (the execution of a method declared within a matching type when using Spring AOP).",
-            "codeSnippet": "@Before(value = \"within(com.service.*)\")\n public void beforeAdvice(JoinPoint joinPoint) {\n    System.out.println(\"Before method:\" + joinPoint.getSignature());\n}"
+            "codeSnippet": "@Before( value = \"within(com.service..*)\" )\n public void beforeAdvice( JoinPoint joinPoint ) {\n    System.out.println( \"Logging within service package\" );\n}"
           },
           {
             "topic": "this :",
             "text": "Limits matching to join points (the execution of methods when using Spring AOP) where the bean reference (Spring AOP proxy) is an instance of the given type.",
-            "codeSnippet": "@Before(value = \"this(com.service.EmployeeService)\")\n public void beforeAdvice(JoinPoint joinPoint) {\n    System.out.println(\"Before method:\" + joinPoint.getSignature());\n}"
+            "codeSnippet": "@Before( value = \"this(com.service.EmployeeService)\" )\n public void beforeAdvice( JoinPoint joinPoint ) {\n    System.out.println( \"Before method:\" + joinPoint.getSignature() );\n}"
           },
           {
             "topic": "target :",
             "text": "Limits matching to join points (the execution of methods when using Spring AOP) where the target object (application object being proxied) is an instance of the given type.",
-            "codeSnippet": "@Before(value = \"target(com.service.EmployeeService)\")\n public void beforeAdvice(JoinPoint joinPoint) {\n    System.out.println(\"Before method:\" + joinPoint.getSignature());\n}"
+            "codeSnippet": "@Before( value = \"target(com.service.EmployeeService)\" )\n public void beforeAdvice( JoinPoint joinPoint ) {\n    System.out.println( \"Logging for target object EmployeeService\" );\n}"
           },
           {
             "topic": "@within :",
             "text": "any join point (method execution only in Spring AOP) where the declared type of the target object has given annotation:",
-            "codeSnippet": "@Before(value = \"@within(java.beans.Transient)\")\n public void beforeAdvice(JoinPoint joinPoint) {\n    System.out.println(\"Before method:\" + joinPoint.getSignature());\n}"
+            "codeSnippet": "@Before( value = \"@within(com.Loggable)\" )\n public void beforeAdvice( JoinPoint joinPoint ) {\n    System.out.println( \"Logging for the method annotate with @Loggable\" );\n}"
           },
           {
             "topic": "@annotation :",
             "text": "any join point (method execution only in Spring AOP) where the executing method has given annotation:",
-            "codeSnippet": "@Before(value = \"@annotation(com.Loggable)\")\n// Note that com.Loggable is what we defined\n public void beforeAdvice(JoinPoint joinPoint) {\n    System.out.println(\"Before method:\" + joinPoint.getSignature());\n}"
+            "codeSnippet": "@Before( value = \"@annotation(com.Loggable)\" )\n// Note that com.Loggable is what we defined\n public void beforeAdvice( JoinPoint joinPoint ) {\n    System.out.println( \"logging at Annotation Pointcut Designators\" );\n}"
           },
           {
             "topic": "args :",
             "text": "Limits matching to join points (the execution of methods when using Spring AOP) where the arguments are instances of the given types.",
-            "codeSnippet": "@Before(value = \"execution(* com.service.EmployeeService.*(..)) and args(name,empId)\")\n public void beforeAdvice(JoinPoint joinPoint, String name, String empId) {\n    System.out.println(\"Before method:\" + joinPoint.getSignature());\n}"
+            "codeSnippet": "@Before( value = \"execution( * com.service.EmployeeService.*(..) ) and args( name,empId )\" )\n public void beforeAdvice( JoinPoint joinPoint, String name, String empId ) {\n    System.out.println( \"Before method:\" + joinPoint.getSignature() );\n}"
           }
         ]
       }
