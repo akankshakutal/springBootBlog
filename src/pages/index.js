@@ -14,6 +14,7 @@ const IndexPage = () => (
               content {
                 text
                 topic
+                diagramPath
                 subtopics {
                   text
                   topic

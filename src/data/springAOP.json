@@ -1,28 +1,11 @@
 [
   {
     "title": " Spring Boot",
-    "date": "2019-09-12",
+    "date": "2019-09-04",
 
     "content": [
       {
-        "topic": "Beans",
-        "diagramPath": "https://qphs.fs.quoracdn.net/main-qimg-834a8d28a9c99a453dab8943e0a5201b.webp",
-        "text": "The objects that are managed by the Spring IoC container are called beans. A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container.A bean definition is essentially a recipe for creating one or more objects. The container looks at the recipe for a named bean when asked and uses the configuration metadata encapsulated by that bean definition to create (or acquire) an actual object.",
-        "subtopics": []
-      },
-      {
-        "topic": "IoC (Inversion of Control)",
-        "text": "“org.springframework.context.ApplicationContext”  interface represents the Spring IoC container and is responsible for instantiating, configuring, and assembling the beans.  A Spring IoC container manages one or more beans. These beans are created with the configuration metadata that you supply to the container. ",
-        "subtopics": [
-          {
-            "topic": "Metadata in IoC Container",
-            "text": "Within the container itself, these bean definitions are represented as BeanDefinition objects, which contain  the following metadata: \n 1. A package-qualified class name\n 2.Bean behavioral configuration elements (scope, lifecycle callbacks etc) \n 3.References to other beans that are needed for the bean to do its work  \n 4.Other configuration settings to set in the newly created object"
-          }
-        ]
-      },
-      {
         "topic": "AOP(Apsect Oriented Programming) :",
-        "diagramPath": "https://cdn2.howtodoinjava.com/wp-content/uploads/2015/01/spring-aop-diagram.jpg",
         "text": "In AOP, aspects enable the modularization of concerns such as transaction management, logging or security that cut across multiple types and objects (often termed crosscutting concerns). AOP provides the way to dynamically add the cross-cutting concern before, after or around the actual logic using simple pluggable configurations.\nUsing AOP, we define the common functionality in one place, but we can declaratively define how and where this functionality is applied without having to modify the class to which we are applying the new feature. Cross-cutting concerns can now be modularized into special classes called aspects.",
         "subtopics": []
       },
