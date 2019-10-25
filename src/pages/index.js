@@ -12,13 +12,18 @@ const IndexPage = () => (
               title
               date
               content {
+                diagramPath
                 text
                 topic
-                diagramPath
                 subtopics {
+                  codeSnippet
                   text
                   topic
-                  codeSnippet
+                  subtopics {
+                    codeSnippet
+                    text
+                    topic
+                  }
                 }
               }
             }

@@ -2,7 +2,6 @@
   {
     "title": " Spring Boot",
     "date": "2019-09-12",
-
     "content": [
       {
         "topic": "Beans",
@@ -24,88 +23,134 @@
         "topic": "AOP(Apsect Oriented Programming) :",
         "diagramPath": "https://cdn2.howtodoinjava.com/wp-content/uploads/2015/01/spring-aop-diagram.jpg",
         "text": "In AOP, aspects enable the modularization of concerns such as transaction management, logging or security that cut across multiple types and objects (often termed crosscutting concerns). AOP provides the way to dynamically add the cross-cutting concern before, after or around the actual logic using simple pluggable configurations.\nUsing AOP, we define the common functionality in one place, but we can declaratively define how and where this functionality is applied without having to modify the class to which we are applying the new feature. Cross-cutting concerns can now be modularized into special classes called aspects.",
-        "subtopics": []
-      },
-      {
-        "topic": "Basic concepts",
         "subtopics": [
           {
-            "topic": "Join point :",
-            "text": "A point during the execution of a program, such as the execution of a method or the handling of an exception.You can also say, it is the actual place in the application where an action will be taken using Spring AOP framework."
+            "topic": "Basic concepts",
+            "subtopics": [
+              {
+                "topic": "Join point :",
+                "text": "A point during the execution of a program, such as the execution of a method or the handling of an exception.You can also say, it is the actual place in the application where an action will be taken using Spring AOP framework."
+              },
+              {
+                "topic": "Advice :",
+                "text": "Action taken by an aspect at a particular join point. This is the actual piece of code that is invoked during program execution by Spring AOP framework."
+              },
+              {
+                "topic": "Pointcut :",
+                "text": "A predicate that matches join points.Spring AOP only supports method execution join points for Spring beans.This is a set of one or more joinpoints where an advice should be executed"
+              }
+            ]
           },
           {
-            "topic": "Advice :",
-            "text": "Action taken by an aspect at a particular join point. This is the actual piece of code that is invoked during program execution by Spring AOP framework."
+            "topic": "Types of Advice",
+            "subtopics": [
+              {
+                "topic": "before",
+                "text": "Run advice before the method execution."
+              },
+              {
+                "topic": "after",
+                "text": "Run advice after the method execution, regardless of its outcome."
+              },
+              {
+                "topic": "after-returning",
+                "text": "Run advice after the method execution, only if the method completes successfully."
+              },
+              {
+                "topic": "after-throwing",
+                "text": "Run advice after the method execution, only if the method exits by throwing an exception."
+              },
+              {
+                "topic": "around",
+                "text": "Run advice before and after the advised method is invoked."
+              }
+            ]
           },
           {
-            "topic": "Pointcut :",
-            "text": "A predicate that matches join points.Spring AOP only supports method execution join points for Spring beans.This is a set of one or more joinpoints where an advice should be executed"
+            "topic": "Pointcut Designators :",
+            "text": "Spring AOP supports the following AspectJ pointcut designators (PCD) for use in pointcut expressions:",
+            "subtopics": [
+              {
+                "topic": "execution :",
+                "text": "For matching method execution join points. This is the primary pointcut designator to use when working with Spring AOP.",
+                "codeSnippet": "@Before( value = \"execution(* com.controller.*.*(..))\" ) // pointcut expression\n public void beforeAdvice( JoinPoint joinPoint ) { // the pointcut signature\n    System.out.println( \"Before method any method in com.controller\" );\n}"
+              },
+              {
+                "topic": "within :",
+                "text": " Limits matching to join points within certain types (the execution of a method declared within a matching type when using Spring AOP).",
+                "codeSnippet": "@Before( value = \"within(com.service..*)\" )\n public void beforeAdvice( JoinPoint joinPoint ) {\n    System.out.println( \"Logging within service package\" );\n}"
+              },
+              {
+                "topic": "this :",
+                "text": "Limits matching to join points (the execution of methods when using Spring AOP) where the bean reference (Spring AOP proxy) is an instance of the given type.",
+                "codeSnippet": "@Before( value = \"this(com.service.EmployeeService)\" )\n public void beforeAdvice( JoinPoint joinPoint ) {\n    System.out.println( \"Before method:\" + joinPoint.getSignature() );\n}"
+              },
+              {
+                "topic": "target :",
+                "text": "Limits matching to join points (the execution of methods when using Spring AOP) where the target object (application object being proxied) is an instance of the given type.",
+                "codeSnippet": "@Before( value = \"target(com.service.EmployeeService)\" )\n public void beforeAdvice( JoinPoint joinPoint ) {\n    System.out.println( \"Logging for target object EmployeeService\" );\n}"
+              },
+              {
+                "topic": "@within :",
+                "text": "any join point (method execution only in Spring AOP) where the declared type of the target object has given annotation:",
+                "codeSnippet": "@Before( value = \"@within(com.Loggable)\" )\n public void beforeAdvice( JoinPoint joinPoint ) {\n    System.out.println( \"Logging for the method annotate with @Loggable\" );\n}"
+              },
+              {
+                "topic": "@annotation :",
+                "text": "any join point (method execution only in Spring AOP) where the executing method has given annotation:",
+                "codeSnippet": "@Before( value = \"@annotation(com.Loggable)\" )\n// Note that com.Loggable is what we defined\n public void beforeAdvice( JoinPoint joinPoint ) {\n    System.out.println( \"logging at Annotation Pointcut Designators\" );\n}"
+              },
+              {
+                "topic": "args :",
+                "text": "Limits matching to join points (the execution of methods when using Spring AOP) where the arguments are instances of the given types.",
+                "codeSnippet": "@Before( value = \"execution( * com.service.EmployeeService.*(..) ) and args( name,empId )\" )\n public void beforeAdvice( JoinPoint joinPoint, String name, String empId ) {\n    System.out.println( \"Before method:\" + joinPoint.getSignature() );\n}"
+              }
+            ]
           }
         ]
+      }
+    ]
+  },
+  {
+    "title": "JVM memory Management",
+    "date": "2019-10-10",
+    "content": [
+      {
+        "topic": "Young Generation :",
+        "diagramPath": "https://i2.wp.com/betsol.com/wp-content/uploads/2017/06/java-memory-management-1.jpg?resize=870%2C362&ssl=1",
+        "text": "Place where all the new objects are created.\nWhen the young generation is filled, garbage collection is performed called Minor GC.\nYoung Generation is divided into three parts – Eden Memory and second Survivor Memory spaces.\nMost of the newly created objects are located in the Eden memory space.\nWhen Eden space is filled with objects, Minor GC is performed and all the survivor objects are moved to one of the survivor spaces.\nMinor GC also checks the survivor objects and move them to the other survivor space.\nSo at a time, one of the survivor space is always empty.\nObjects that are survived after many cycles of GC, are moved to the Old generation memory space.\nUsually, it’s done by setting a threshold for the age ofthe young generation objects before they become eligible to promote to Old generation."
       },
       {
-        "topic": "Types of Advice",
-        "subtopics": [
-          {
-            "topic": "before",
-            "text": "Run advice before the method execution."
-          },
-          {
-            "topic": "after",
-            "text": "Run advice after the method execution, regardless of its outcome."
-          },
-          {
-            "topic": "after-returning",
-            "text": "Run advice after the method execution, only if the method completes successfully."
-          },
-          {
-            "topic": "after-throwing",
-            "text": "Run advice after the method execution, only if the method exits by throwing an exception."
-          },
-          {
-            "topic": "around",
-            "text": "Run advice before and after the advised method is invoked."
-          }
-        ]
+        "topic": " Old Generation :",
+        "text": "Old Generation memory contains the objects that are long-lived and survived after many rounds of Minor GC. Usually, garbage collection is performed in Old Generation memory when it’s full. Old Generation Garbage Collection is called Major GC and usually takes a longer time."
       },
       {
-        "topic": "Pointcut Designators :",
-        "text": "Spring AOP supports the following AspectJ pointcut designators (PCD) for use in pointcut expressions:",
+        "topic": "Java Memory Model",
         "subtopics": [
           {
-            "topic": "execution :",
-            "text": "For matching method execution join points. This is the primary pointcut designator to use when working with Spring AOP.",
-            "codeSnippet": "@Before( value = \"execution(* com.controller.*.*(..))\" ) // pointcut expression\n public void beforeAdvice( JoinPoint joinPoint ) { // the pointcut signature\n    System.out.println( \"Before method any method in com.controller\" );\n}"
+            "topic": "Permanent Generation",
+            "codeSnippet": "",
+            "text": "It contains the application metadata required by the JVM to describe the classes and methods used in the application. Note that  Permanent Generation is not part of Java heap memory.Perm Gen is populated by JVM at runtime based on the classes used by the application. Perm Gen also contains Java SE library classes and methods.Perm Gen objects are garbage collected in a full garbage collection."
           },
           {
-            "topic": "within :",
-            "text": " Limits matching to join points within certain types (the execution of a method declared within a matching type when using Spring AOP).",
-            "codeSnippet": "@Before( value = \"within(com.service..*)\" )\n public void beforeAdvice( JoinPoint joinPoint ) {\n    System.out.println( \"Logging within service package\" );\n}"
+            "topic": "Method Area",
+            "codeSnippet": "",
+            "text": "Method Area is part of space in the Perm Gen and used to store class structure (runtime constants and static variables) and code for methods and constructors."
           },
           {
-            "topic": "this :",
-            "text": "Limits matching to join points (the execution of methods when using Spring AOP) where the bean reference (Spring AOP proxy) is an instance of the given type.",
-            "codeSnippet": "@Before( value = \"this(com.service.EmployeeService)\" )\n public void beforeAdvice( JoinPoint joinPoint ) {\n    System.out.println( \"Before method:\" + joinPoint.getSignature() );\n}"
+            "topic": "Memory Pool",
+            "codeSnippet": "",
+            "text": "Memory Pools are created by JVM memory managers to create a pool of immutable objects if the implementation supports it. String Pool is a good example of this kind of memory pool. Memory Pool can belong to Heap or Perm Gen, depending on the JVM memory manager implementation."
           },
           {
-            "topic": "target :",
-            "text": "Limits matching to join points (the execution of methods when using Spring AOP) where the target object (application object being proxied) is an instance of the given type.",
-            "codeSnippet": "@Before( value = \"target(com.service.EmployeeService)\" )\n public void beforeAdvice( JoinPoint joinPoint ) {\n    System.out.println( \"Logging for target object EmployeeService\" );\n}"
+            "topic": "Runtime Constant Pool",
+            "codeSnippet": "",
+            "text": "Runtime constant pool is per-class runtime representation of constant pool in a class. It contains class runtime constants and static methods. Runtime constant pool is part of the method area."
           },
           {
-            "topic": "@within :",
-            "text": "any join point (method execution only in Spring AOP) where the declared type of the target object has given annotation:",
-            "codeSnippet": "@Before( value = \"@within(com.Loggable)\" )\n public void beforeAdvice( JoinPoint joinPoint ) {\n    System.out.println( \"Logging for the method annotate with @Loggable\" );\n}"
-          },
-          {
-            "topic": "@annotation :",
-            "text": "any join point (method execution only in Spring AOP) where the executing method has given annotation:",
-            "codeSnippet": "@Before( value = \"@annotation(com.Loggable)\" )\n// Note that com.Loggable is what we defined\n public void beforeAdvice( JoinPoint joinPoint ) {\n    System.out.println( \"logging at Annotation Pointcut Designators\" );\n}"
-          },
-          {
-            "topic": "args :",
-            "text": "Limits matching to join points (the execution of methods when using Spring AOP) where the arguments are instances of the given types.",
-            "codeSnippet": "@Before( value = \"execution( * com.service.EmployeeService.*(..) ) and args( name,empId )\" )\n public void beforeAdvice( JoinPoint joinPoint, String name, String empId ) {\n    System.out.println( \"Before method:\" + joinPoint.getSignature() );\n}"
+            "topic": " Java Stack Memory",
+            "codeSnippet": "",
+            "text": "Java Stack memory is used for execution of a thread. They contain method specific values that are short-lived and references to other objects in the heap that is getting referred from the method."
           }
         ]
       }
